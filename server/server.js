@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const authController = require('./controllers/authenicate')
+const bodyParser = require('body-parser');
+const cors = require('cors')
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.json());
 
 //routes
@@ -13,6 +16,10 @@ app.use('/api', authRoutes);
 
 require('dotenv').config();
 const port = process.env.PORT || 4001;
+
+app.use(cors({
+    origin: `${process.env.FRONT_END_IP}`
+}))
 
 mongoose.connect(`${process.env.DB_PROTOCOL}://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}?${process.env.DB_PARAMS}`,
     {

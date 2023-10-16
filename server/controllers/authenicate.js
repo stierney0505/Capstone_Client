@@ -126,7 +126,7 @@ const register = async (req, res) => {
             errMessage = err;
         }
 
-        res.stats(400).json({ error: { status: 400, message: errMessage } })
+        res.status(400).json({ error: { status: 400, message: errMessage } })
     }
 }
 
@@ -359,18 +359,8 @@ const changeEmail = async (req, res) => {
 
 const test = async (req, res) => {
     try {
-        const newUser = new User({
-            email: 'tierst03@pfw.edu',
-            password: 'encryptLater',
-            emailConfirmed: 'false',
-            emailToken: 'test',
-            security: {
-                tokens: null,
-                passwordReset: null
-            }
-        });
-        await newUser.save();
-        res.send(newUser);
+        req.user
+        res.send("GOOD" + req.user.email);
     }
     catch {
         res.send('Error');
