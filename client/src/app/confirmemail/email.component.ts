@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-email',
@@ -7,14 +8,28 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./email.component.css']
 })
 export class ConfirmEmailComponent {
-  
-  constructor(private route: ActivatedRoute) { }
+  public href: string = "";
+  public token: string = "";
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
-    this.route.queryParams
-      .subscribe(params => {
-        
-      }
-    );
+    this.href = this.router.url;
+    let token = this.href.split("/").pop();
+    if (token) {
+      this.token = token;
+    }
+    if (this.token) {
+      const data = {
+        ["email-token"]: this.token
+      };
+  
+      this.http.post('http://localhost:4001/api/auth/confirmEmail', data)
+        .subscribe((response: any) => {
+          console.log('Email confirmation successful!', response);
+          this.router.navigate(['/home']);
+        }, (error: any) => {
+          console.error('Confirmation failed.', error);
+        });
+    }
   }
 }
