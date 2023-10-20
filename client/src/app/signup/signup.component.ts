@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +12,7 @@ export class SignupComponent {
   email: string = '';
   password: string = '';
 
-  url: string = 'http://18.222.175.231:5000/api/register';
+  url: string = environment.apiUrl;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -21,7 +22,7 @@ export class SignupComponent {
       password: this.password
     };
 
-    this.http.post('http://localhost:4001/api/register', data)
+    this.http.post(this.url, data)
       .subscribe((response: any) => {
         console.log('Registration successful!', response);
         this.router.navigate(['/home']);
