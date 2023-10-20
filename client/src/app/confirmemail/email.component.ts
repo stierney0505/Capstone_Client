@@ -18,9 +18,11 @@ export class ConfirmEmailComponent {
     if (token) {
       this.token = token;
     }
-    if (this.token) {
+    const authToken = localStorage.getItem("jwt-auth-token");
+    if (this.token && authToken) {
       const data = {
-        ["email-token"]: this.token
+        ["email-token"]: this.token,
+        ["Authorization"]: `Bearer ${authToken}`
       };
   
       this.http.post('http://localhost:4001/api/auth/confirmEmail', data)
