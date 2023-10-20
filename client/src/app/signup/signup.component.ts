@@ -22,9 +22,29 @@ export class SignupComponent {
       password: this.password
     };
 
+    /*
+    success: {
+                    status: 200,
+                    message: 'REGISTER_SUCCESS',
+                    accessToken: access_token,
+                    refreshToken: refreshToken,
+                    user: {
+                        id: user.id,
+                        email: user.email,
+                    }
+                }
+                */
     this.http.post(this.url, data)
       .subscribe((response: any) => {
         console.log('Registration successful!', response);
+        const data = {
+          token: response.success.access_token,
+          refresh: response.success.refresh_token
+        }
+
+        localStorage.setItem("jwt-auth-token", data.token);
+        localStorage.setItem("jwt-ref-token", data.refresh);
+        
         this.router.navigate(['/home']);
       }, (error: any) => {
         console.error('Registration failed.', error);
