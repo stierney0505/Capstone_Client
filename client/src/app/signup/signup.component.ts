@@ -38,13 +38,13 @@ export class SignupComponent {
       .subscribe((response: any) => {
         console.log('Registration successful!', response);
         const data = {
-          token: response.success.access_token,
-          refresh: response.success.refresh_token
+          token: response.success.accessToken,
+          refresh: response.success.refreshToken
         }
 
         localStorage.setItem("jwt-auth-token", data.token);
-        localStorage.setItem("jwt-ref-token", data.refresh);
-        
+        localStorage.setItem("jwt-refr-token", data.refresh);
+
         this.router.navigate(['/home']);
       }, (error: any) => {
         console.error('Registration failed.', error);
