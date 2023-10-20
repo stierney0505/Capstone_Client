@@ -27,11 +27,14 @@ export class ConfirmEmailComponent {
 
       const data = {
         ["emailToken"]: this.token,
-        ["authorization"]: `Bearer ${authToken}`
       };
+
+      const headers = {
+        ["authorization"]: `Bearer ${authToken}`
+      }
       console.log(this.token);
       console.log(data);
-      this.http.post(`${this.url}/api/confirmEmail`, data)
+      this.http.post(`${this.url}/api/confirmEmail`, data, {headers: headers})
         .subscribe((response: any) => {
           console.log('Email confirmation successful!', response);
           this.router.navigate(['/home']);
