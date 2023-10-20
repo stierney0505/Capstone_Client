@@ -7,13 +7,14 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ConfirmEmailComponent } from './confirmemail/email.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SignupComponent
+    SignupComponent,
+    ConfirmEmailComponent
   ],
   imports: [
     BrowserModule,

@@ -18,6 +18,8 @@ export class ConfirmEmailComponent {
     if (token) {
       this.token = token;
     }
+    console.log(this.href);
+    console.log(this.token);
     if (this.token) {
       const data = {
         ["email-token"]: this.token
