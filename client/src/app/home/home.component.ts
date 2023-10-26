@@ -8,14 +8,14 @@ import { JwtPayload } from '../jwt-payload';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  public firstName: string = '';
+  public name: string = '';
 
   constructor() {
     const authToken = localStorage.getItem("jwt-auth-token");
 
     if (authToken) {
       const decodedToken = jwt_decode(authToken) as JwtPayload;
-      this.firstName = decodedToken.name;
+      this.name = decodedToken.name;
     }
   }
 }
