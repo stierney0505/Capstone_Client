@@ -15,7 +15,7 @@ export class HomeComponent {
 
     if (authToken) {
       const decodedToken = jwt_decode(authToken) as JwtPayload;
-      this.firstName = decodedToken.firstName;
+      this.firstName = decodedToken.name;
     }
   }
 }
