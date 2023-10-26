@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
+
   email: string = '';
   password: string = '';
   firstName: string = '';
