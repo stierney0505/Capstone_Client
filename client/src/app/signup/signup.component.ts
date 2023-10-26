@@ -12,7 +12,7 @@ export class SignupComponent {
 
   email: string = '';
   password: string = '';
-  firstName: string = '';
+  name: string = '';
 
   url: string = environment.apiUrl;
 
@@ -22,7 +22,7 @@ export class SignupComponent {
     const data = {
       email: this.email,
       password: this.password,
-      firstName: this.firstName
+      name: this.name
     };
 
     /*
