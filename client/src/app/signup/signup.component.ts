@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 export class SignupComponent {
   email: string = '';
   password: string = '';
+  firstName: string = '';
 
   url: string = environment.apiUrl;
 
@@ -19,7 +20,8 @@ export class SignupComponent {
   onSubmit() {
     const data = {
       email: this.email,
-      password: this.password
+      password: this.password,
+      firstName: this.firstName
     };
 
     /*
