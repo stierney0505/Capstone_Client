@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmEmailComponent } from './confirmemail/email.component';
 import { HeaderBarComponent } from './header-bar/header-bar.component';
+import { FacultyDashboardComponent } from './faculty-dashboard/faculty-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HeaderBarComponent } from './header-bar/header-bar.component';
     HomeComponent,
     SignupComponent,
     ConfirmEmailComponent,
-    HeaderBarComponent
+    HeaderBarComponent,
+    FacultyDashboardComponent
   ],
   imports: [
     BrowserModule,
