@@ -10,6 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConfirmEmailComponent } from './confirmemail/email.component';
 import { HeaderBarComponent } from './header-bar/header-bar.component';
 import { FacultyDashboardComponent } from './faculty-dashboard/faculty-dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ResearchProjectCardComponent } from './research-project-card/research-project-card.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +22,17 @@ import { FacultyDashboardComponent } from './faculty-dashboard/faculty-dashboard
     SignupComponent,
     ConfirmEmailComponent,
     HeaderBarComponent,
-    FacultyDashboardComponent
+    FacultyDashboardComponent,
+    ResearchProjectCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

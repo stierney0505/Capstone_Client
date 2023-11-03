@@ -1,0 +1,9 @@
+.example-full-width {
+    width: 300px;
+    text-align: center;
+}
+
+.faculty-search-form {
+    display: flex;
+    justify-content: center;
+}
