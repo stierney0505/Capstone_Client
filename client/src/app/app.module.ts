@@ -13,6 +13,7 @@ import { FacultyDashboardComponent } from './faculty-dashboard/faculty-dashboard
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { ResearchProjectCardComponent } from './research-project-card/research-project-card.component';
 
 @NgModule({
@@ -33,6 +34,7 @@ import { ResearchProjectCardComponent } from './research-project-card/research-p
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

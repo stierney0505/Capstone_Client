@@ -1,8 +1,16 @@
 <app-header-bar></app-header-bar>
-
-<form class="faculty-search-form">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Search: " class="wide-oval-input">
-    </mat-form-field>
-  </form>
+<span class="faculty-dashboard-page-container">
+  <div class="faculty-project-selection-column">
+    <button mat-raised-button>Active Projects</button>
+    <button mat-raised-button>Archived Projects</button>
+    <button mat-raised-button>Project Drafts</button>
+  </div>
+  <div class="faculty-dashboard-info">
+    <form class="faculty-search-form">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Search: " class="wide-oval-input">
+        </mat-form-field>
+      </form>
+  </div>
+</span>
 
