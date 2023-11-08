@@ -1,9 +1,30 @@
 .example-full-width {
-    width: 300px;
-    text-align: center;
+  width: 300px;
+  text-align: center;
 }
 
 .faculty-search-form {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+.faculty-project-selection-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  float: left;
+}
+
+.faculty-dashboard-info {
+}
+
+.project-selection-button {
+    width: 150px;
+}
+
+.project-creation-button {
+    width: 150px;
+    border-radius: 25px;
+    margin-top: 50px;
 }
