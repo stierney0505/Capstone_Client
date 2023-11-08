@@ -11,9 +11,9 @@ export class AuthGuard {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean | UrlTree {
-    const token = localStorage.getItem('jwtToken');
+    const authToken = localStorage.getItem("jwt-auth-token");
 
-    if (token) {
+    if (authToken) {
       return true;
     } else {
       return this.router.parseUrl('/signup');
