@@ -8,13 +8,15 @@ import { SignupComponent } from './signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmEmailComponent } from './confirmemail/email.component';
+import { PostProjectComponent } from './post_creation/posts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SignupComponent,
-    ConfirmEmailComponent
+    ConfirmEmailComponent,
+    PostProjectComponent
   ],
   imports: [
     BrowserModule,
