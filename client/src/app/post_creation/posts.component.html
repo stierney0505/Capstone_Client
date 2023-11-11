@@ -1,4 +1,62 @@
 <form (ngSubmit)="onSubmit()">
-  <label> Email: <input type="email" [(ngModel)]="email" name="email" required>
+  <label> Post Title: <input type="text" [(ngModel)]="title" name="title" required>
   </label>
-  </form>
+  <br/>
+  <label> Description: <input type="text" [(ngModel)]="description" name="description" required>
+  </label>
+  <br/>
+  <label> Responsibilities: <input type="text" [(ngModel)]="responsibilities" name="responsibilities" required>
+  </label>
+  <br/>
+  <p>Required Categories</p>
+    <input type="radio" id="unpaid" name="Paid" value="1">
+    <label for="unpaid">Un-Paid</label>
+    <input type="radio" id="paid" name="Paid" value="2">
+    <label for="paid">Paid</label><br>
+    <input type="radio" id="exp_not_req" name="Experience" value="1">
+    <label for="unpaid">Experience Not Required</label>
+    <input type="radio" id="exp_req" name="Experience" value="2">
+    <label for="paid">Experience Required</label><br>
+
+    
+
+  <br>
+
+  <p>Optional Categories</p>
+  <input type="checkbox" id="comsci" name="ComputerScience" value="cs">
+  <label for="comsci">Computer Science</label><br>
+  
+  <input type="button" value="Add New Category">
+  <br><br>
+
+  <label> GPA Requirement: <input type="number" [(ngModel)]="gpa" name="gpa">
+  </label><br>
+  <label> Major: <input type="text" [(ngModel)]="major" name="major">
+  </label><br>
+  <label> Standing: <input type="text" [(ngModel)]="standing" name="standing">
+  </label><br>
+  <br>
+  <label> Post Image: <label>VR_Poster_Picture.png  </label><input type="button" value="Choose Image" id="choose-image"></label>
+<br>
+  <label> Deadline: <input type="date" id="choose-date" name="choose-date"></label>
+
+  <br>
+  <label> Other Experience: <input type="text" [(ngModel)]="miscExperience" name="misc">
+  </label><br>
+
+  <br><br>
+  <button type="button">Next Page</button>
+
+
+  <br> <br> <br>
+
+  <!-- delete later -->
+
+  <p> [next page] </p>
+
+  <h1>Create Research Listing</h1>
+  <label> CUSTOM FIELD NAME: <input type="textbox" name="fieldName">
+  </label><br>
+
+
+</form>
