@@ -1,5 +1,8 @@
 <div *ngFor="let facultyProject of facultyProjects">
-    <h2>{{ facultyProject.name }}</h2>
-    <p>{{ facultyProject.description }}</p>
-  </div>
-  
+  <h2>{{ facultyProject.projectName }}</h2>
+  <p>Professor: {{ facultyProject.professor }}</p>
+  <p>Posted: {{ facultyProject.posted | date:'medium' }}</p>
+  <p>Description: {{ facultyProject.description }}</p>
+  <p>Questions: {{ facultyProject.questions }}</p>
+  <p>Requirements: {{ facultyProject.requirements | json }}</p>
+</div>
