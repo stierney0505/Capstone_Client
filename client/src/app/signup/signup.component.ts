@@ -14,7 +14,7 @@ export class SignupComponent {
   password: string = '';
   name: string = '';
 
-  url: string = environment.apiUrl;
+  url: string = environment.registerApiUrl;
 
   constructor(private http: HttpClient, private router: Router) {}
 
