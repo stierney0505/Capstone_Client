@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmEmailComponent } from './confirmemail/email.component';
 import { PostProjectComponent } from './post_creation/posts.component';
+import { CategoryComponent } from './post_creation/category-widget/category.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PostProjectComponent } from './post_creation/posts.component';
     HomeComponent,
     SignupComponent,
     ConfirmEmailComponent,
-    PostProjectComponent
+    PostProjectComponent,
+   // CategoryComponent,
   ],
   imports: [
     BrowserModule,
