@@ -7,18 +7,29 @@ import { FacultyProjectService } from '../_helpers/faculty-project-service/facul
   styleUrls: ['./research-project-card.component.css']
 })
 export class ResearchProjectCardComponent implements OnInit {
-  facultyProjects: any[] = [];
+  activeProjects: any[] = [];
 
   constructor(private facultyProjectService: FacultyProjectService) {}
 
   ngOnInit(): void {
-    this.facultyProjectService.getProjects().subscribe(
-      (data) => {
-        this.facultyProjects = data;
+    this.facultyProjectService.login('sean@pfw.edu', 'testt11s1sa').subscribe({
+      next: () => {
+        this.facultyProjectService.getProjects().subscribe({
+          next: (data) => {
+            console.log('Data:', data); // Log the entire data for inspection
+            this.activeProjects = data.success && data.success.projects && data.success.projects.archivedProjects
+              ? data.success.projects.archivedProjects.projects
+              : [];
+            console.log('Active Projects:', this.activeProjects);
+          },
+          error: (error) => {
+            console.error('Error fetching projects', error);
+          }
+        });
       },
-      (error) => {
-        console.error('Error fetching projects', error);
+      error: (loginError) => {
+        console.error('Error during login', loginError);
       }
-    );
+    });
   }
 }
