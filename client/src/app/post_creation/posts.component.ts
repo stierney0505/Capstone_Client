@@ -1,5 +1,5 @@
 import { Component, ComponentRef, ViewChild, ViewContainerRef, OnInit, AfterViewInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { CategoryComponent } from './category-widget/category/category.component';
@@ -90,27 +90,35 @@ export class PostProjectComponent implements AfterViewInit {
   customFieldObjects: Array<ComponentRef<FieldComponent>> = [];
 
   onSubmit() {
+    const authToken = localStorage.getItem("jwt-auth-token");
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authToken}`,
+    });
     const formData = {
-      projects: {
-        title: this.title,
-        description: this.description,
-        responsibilities: this.responsibilities,
-        gpa: this.gpa,
-        major: this.major,
-        standing: this.standing,
-        miscExperience: this.miscExperience,
-        isPaid: this.isPaid,
-        needsExperience: this.needsExperience,
-        categories: this.categoryObjects.map(category => category.instance.name),
-        questions: this.customFieldObjects.map(customField => ({
-          fieldName: customField.instance.fieldName,
-          fieldInstructions: customField.instance.fieldInstructions
-        }))
+      projectType: 'Active',
+      professor: 'Adam',
+      projectDetails: {
+        project: {
+          projectName: this.title,
+          posted: new Date(),
+          description: this.description,
+          questions: [
+            'this'
+          ],
+          requirements: [
+            {
+              requirementType: 1,
+              requirementValue: 'yo',
+              required: true
+            }
+          ]
+        }
       }
     };
     console.log('FormData:', formData);
     // Make an HTTP request to your server
-    this.http.post(`${this.url}/projects/createProject`, formData)
+    this.http.post(`${this.url}/projects/createProject`, formData, { headers })
       .subscribe(response => {
         console.log('Project creation response:', response);
         this.router.navigate(['/faculty-dashboard']);

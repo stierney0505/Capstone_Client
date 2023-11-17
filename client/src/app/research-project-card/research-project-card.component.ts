@@ -17,22 +17,16 @@ export class ResearchProjectCardComponent implements OnInit {
   }
 
   fetchProjects(): void {
-    this.facultyProjectService.login('tierst01@pfw.edu', 'testt11s1sa').subscribe({
-      next: () => {
-        this.facultyProjectService.getProjects().subscribe({
-          next: (data) => {
-            this.projects = this.getProjectsByType(this.currentProjectType, data);
-          },
-          error: (error) => {
-            console.error('Error fetching projects', error);
-          }
-        });
+    this.facultyProjectService.getProjects().subscribe({
+      next: (data) => {
+        this.projects = this.getProjectsByType(this.currentProjectType, data);
       },
-      error: (loginError) => {
-        console.error('Error during login', loginError);
+      error: (error) => {
+        console.error('Error fetching projects', error);
       }
     });
   }
+  
 
   // Define a method to get the project data based on the project type
   getProjectsByType(type: string, data: any): any[] {

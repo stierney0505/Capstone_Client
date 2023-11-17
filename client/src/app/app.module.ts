@@ -21,7 +21,7 @@ import { FacultyPostCreationPageComponent } from './faculty-post-creation-page/f
 import { ReactiveFormsModule } from '@angular/forms';
 import { CategoryComponent } from './post_creation/category-widget/category/category.component';
 import { FieldComponent } from './post_creation/custom-field/field/field.component';
-
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { FieldComponent } from './post_creation/custom-field/field/field.compone
     ResearchProjectCardComponent,
     PostProjectComponent,
     FacultyPostCreationPageComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
