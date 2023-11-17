@@ -34,4 +34,33 @@ export class FacultyProjectService {
 
     return this.http.get(`${this.apiUrl}/projects/getProjects`, { headers });
   }
+
+  deleteProject(projectId: string, projectType: string): Observable<any>{
+    const authToken = localStorage.getItem("jwt-auth-token");
+
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${authToken}`,
+      }),
+      body: {
+        "projectID" : projectId,
+        "projectType" : projectType
+      }
+    }
+
+    return this.http.delete(`${this.apiUrl}/projects/deleteProject`, options);
+  }
+
+  archiveProject(projectId: string): Observable<any>{
+    const authToken = localStorage.getItem("jwt-auth-token");
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authToken}`,
+    });
+    const data = {"projectID": projectId}
+
+    return this.http.put(`${this.apiUrl}/projects/archiveProject`, data, { headers });
+  }
 }
