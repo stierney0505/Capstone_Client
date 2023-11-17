@@ -1,8 +1,4 @@
 import { Component } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
-import {Sort} from '@angular/material/sort';
-
-
 
 export interface appliedStudent {
   name: string;
@@ -12,12 +8,12 @@ export interface appliedStudent {
   experience: boolean;
 }
 
-
 @Component({
   selector: 'app-faculty-dashboard',
   templateUrl: './faculty-dashboard.component.html',
   styleUrls: ['./faculty-dashboard.component.css']
 })
+
 export class FacultyDashboardComponent {
    appliedStudentData: appliedStudent[] = [
     {name: 'Sean', gpa: 12.0, degree: 'Computer Science', email: 'sean@outlook.com', experience: true},
@@ -32,7 +28,6 @@ export class FacultyDashboardComponent {
   constructor() {
     this.sortedData = this.appliedStudentData
   }
-  
 
   displayedColumns: string[] = ['name', 'gpa', 'degree', 'email', 'experience'];
   dataSource = this.appliedStudentData;

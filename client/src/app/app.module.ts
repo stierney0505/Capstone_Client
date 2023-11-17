@@ -17,6 +17,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { ResearchProjectCardComponent } from './research-project-card/research-project-card.component';
 import { MatTableModule } from '@angular/material/table';
 import { PostProjectComponent } from './post_creation/posts.component';
+import { FacultyPostCreationPageComponent } from './faculty-post-creation-page/faculty-post-creation-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import { PostProjectComponent } from './post_creation/posts.component';
     HeaderBarComponent,
     FacultyDashboardComponent,
     ResearchProjectCardComponent,
-    PostProjectComponent
+    PostProjectComponent,
+    FacultyPostCreationPageComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +43,7 @@ import { PostProjectComponent } from './post_creation/posts.component';
     MatInputModule,
     MatButtonModule,
     MatTableModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
