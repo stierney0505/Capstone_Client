@@ -19,6 +19,8 @@ import { MatTableModule } from '@angular/material/table';
 import { PostProjectComponent } from './post_creation/posts.component';
 import { FacultyPostCreationPageComponent } from './faculty-post-creation-page/faculty-post-creation-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CategoryComponent } from './post_creation/category-widget/category/category.component';
+import { FieldComponent } from './post_creation/custom-field/field/field.component';
 
 
 @NgModule({
@@ -31,7 +33,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FacultyDashboardComponent,
     ResearchProjectCardComponent,
     PostProjectComponent,
-    FacultyPostCreationPageComponent
+    FacultyPostCreationPageComponent,
   ],
   imports: [
     BrowserModule,
