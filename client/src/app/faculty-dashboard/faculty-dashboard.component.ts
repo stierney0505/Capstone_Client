@@ -33,30 +33,7 @@ export class FacultyDashboardComponent {
     this.sortedData = this.appliedStudentData
   }
   
-  sortData(sort: Sort) {
-    const data = this.appliedStudentData.slice();
-    if(!sort.active || sort.direction === '') {
-      this.sortedData = data;
-      return;
-    }
-
-    this.sortedData = data.sort((a, b) => {
-      const isAsc = sort.direction === 'asc';
-      switch(sort.active) {
-        case 'name' : return compare(a.name, b.name, isAsc);
-        case 'name' : return compare(a.gpa, b.gpa, isAsc);
-        case 'name' : return compare(a.degree, b.degree, isAsc);
-        case 'name' : return compare(a.email, b.email, isAsc);
-        case 'name' : return compare(a.experience, b.experience, isAsc);
-        default: return 0;
-      }
-    });
-  }
 
   displayedColumns: string[] = ['name', 'gpa', 'degree', 'email', 'experience'];
   dataSource = this.appliedStudentData;
-}
-
-function compare (a: number | string | boolean, b: number | string | boolean, isAsc: boolean) {
-  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

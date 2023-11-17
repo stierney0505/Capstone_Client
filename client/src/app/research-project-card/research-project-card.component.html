@@ -1,8 +1,17 @@
-<div *ngFor="let activeProject of activeProjects">
-  <h2>{{ activeProject.projectName }}</h2>
-  <p>Professor: {{ activeProject.professor }}</p>
-  <p>Posted: {{ activeProject.posted | date:'medium' }}</p>
-  <p>Description: {{ activeProject.description }}</p>
-  <p>Questions: {{ activeProject.questions }}</p>
-  <p>Requirements: {{ activeProject.requirements | json }}</p>
+<div class="faculty-project-selection-column">
+  <button mat-raised-button class="project-selection-button" (click)="updateProjectType('active')">Active Projects</button>
+  <button mat-raised-button class="project-selection-button" (click)="updateProjectType('archived')">Archived Projects</button>
+  <button mat-raised-button class="project-selection-button" (click)="updateProjectType('draft')">Project Drafts</button>
+  <button mat-raised-button color="primary" class="project-creation-button">Create Project</button>
+</div>
+
+<div *ngFor="let project of projects" class="project-card">
+  <div class="card">
+    <h2>{{ project.projectName }}</h2>
+    <p>Professor: {{ project.professor }}</p>
+    <p>Posted: {{ project.posted | date:'medium' }}</p>
+    <p>Description: {{ project.description }}</p>
+    <p>Questions: {{ project.questions }}</p>
+    <p>Requirements: {{ project.requirements | json }}</p>
+  </div>
 </div>
