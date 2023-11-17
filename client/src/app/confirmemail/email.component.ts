@@ -24,15 +24,17 @@ export class ConfirmEmailComponent {
     }
     const authToken = localStorage.getItem("jwt-auth-token");
     if (this.token && authToken) {
+
       const data = {
-        ["email-token"]: this.token,
+        ["emailToken"]: this.token,
       };
+
       const headers = {
-        ["Authorization"]: `Bearer ${authToken}`,
-        ["Content-Type"]: 'application/json'
+        ["authorization"]: `Bearer ${authToken}`
       }
-  
-      this.http.post(`${this.url}/api/auth/confirmEmail`, data, {headers: headers})
+      console.log(this.token);
+      console.log(data);
+      this.http.post(`${this.url}/api/confirmEmail`, data, {headers: headers})
         .subscribe((response: any) => {
           console.log('Email confirmation successful!', response);
           this.router.navigate(['/home']);
