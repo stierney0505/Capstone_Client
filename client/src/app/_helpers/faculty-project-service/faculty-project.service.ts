@@ -26,9 +26,11 @@ export class FacultyProjectService {
   }
 
   getProjects(): Observable<any> {
-    const headers = this.authToken ? new HttpHeaders({
-      'Authorization': `Bearer ${this.authToken}`
-    }) : undefined;
+    const authToken = localStorage.getItem("jwt-auth-token");
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authToken}`,
+    });
 
     return this.http.get(`${this.apiUrl}/projects/getProjects`, { headers });
   }
