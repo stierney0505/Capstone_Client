@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FacultyProjectService } from '../_helpers/faculty-project-service/faculty-project.service';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-research-project-card',
@@ -10,10 +13,14 @@ export class ResearchProjectCardComponent implements OnInit {
   projects: any[] = [];
   currentProjectType: string = 'active'; // Default to the list of active projects
 
-  constructor(private facultyProjectService: FacultyProjectService) {}
+  constructor(private facultyProjectService: FacultyProjectService, private router: Router) {}
 
   ngOnInit(): void {
     this.fetchProjects();
+  }
+
+  redirectToCreateProject() {
+    this.router.navigate(['/create-post']);
   }
 
   fetchProjects(): void {

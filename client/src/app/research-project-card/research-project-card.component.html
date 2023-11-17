@@ -2,7 +2,7 @@
   <button mat-raised-button class="project-selection-button" (click)="updateProjectType('active')">Active Projects</button>
   <button mat-raised-button class="project-selection-button" (click)="updateProjectType('archived')">Archived Projects</button>
   <button mat-raised-button class="project-selection-button" (click)="updateProjectType('draft')">Project Drafts</button>
-  <button mat-raised-button color="primary" class="project-creation-button">Create Project</button>
+  <button mat-raised-button color="primary" class="project-creation-button" (click)="redirectToCreateProject()">Create Project</button>
 </div>
 
 <div *ngFor="let project of projects" class="project-card">
