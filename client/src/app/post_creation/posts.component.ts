@@ -2,9 +2,16 @@ import { Component, ComponentRef, ViewChild, ViewContainerRef, OnInit, AfterView
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+<<<<<<< Updated upstream
 import { FormsModule } from "@angular/forms";
 import { CategoryComponent } from './category-widget/category.component';
 import { FieldComponent } from './custom-field/field.component';
+=======
+import { CategoryComponent } from './category-widget/category/category.component';
+import { FieldComponent } from './custom-field/field/field.component';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+import { CustomFieldDialogue } from './custom-field-modal/modal.component';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-posts',
@@ -52,7 +59,7 @@ export class PostProjectComponent implements AfterViewInit {
     }
   ]
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, public dialog: MatDialog) {
     
   }
 
@@ -65,8 +72,15 @@ export class PostProjectComponent implements AfterViewInit {
     })
   }
 
-  createCustomField() {
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CustomFieldDialogue, {
+      data: {type: 'option', fieldName: 'name'},
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+    });
   }
 
   onFileSelected(event: any) {
