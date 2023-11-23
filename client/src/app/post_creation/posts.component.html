@@ -9,25 +9,24 @@
   </label>
   <br/>
   <p>Required Categories</p>
-
-    <input type="radio" id="unpaid" name="Paid" [value]="false" [(ngModel)]="isPaid">
+    <input type="radio" id="unpaid" name="Paid" value="1">
     <label for="unpaid">Un-Paid</label>
-    <input type="radio" id="paid" name="Paid" [value]="true" [(ngModel)]="isPaid">
+    <input type="radio" id="paid" name="Paid" value="2">
     <label for="paid">Paid</label><br>
-
-    <input type="radio" id="exp_not_req" name="Experience" [value]="false" [(ngModel)]="needsExperience">
-    <label for="exp_not_req">Experience Not Required</label>
-    <input type="radio" id="exp_req" name="Experience" [value]="true" [(ngModel)]="needsExperience">
-    <label for="exp_req">Experience Required</label><br>
+    <input type="radio" id="exp_not_req" name="Experience" value="1">
+    <label for="unpaid">Experience Not Required</label>
+    <input type="radio" id="exp_req" name="Experience" value="2">
+    <label for="paid">Experience Required</label><br>
 
     
 
   <br>
 
   <p>Optional Categories</p>
-  <ng-container #categories></ng-container>
-  <br>
-  <input type="button" value="Add New Category" (click)="createNewCategory('')">
+  <input type="checkbox" id="comsci" name="ComputerScience" value="cs">
+  <label for="comsci">Computer Science</label><br>
+  
+  <input type="button" value="Add New Category">
   <br><br>
 
   <label> GPA Requirement: <input type="number" [(ngModel)]="gpa" name="gpa">
@@ -37,36 +36,27 @@
   <label> Standing: <input type="text" [(ngModel)]="standing" name="standing">
   </label><br>
   <br>
-  <label> Post Image:<input type="file" accept="image/*" id="imageCapturer" (change)="onFileSelected($event)">
-    </label>
-  
+  <label> Post Image: <label>VR_Poster_Picture.png  </label><input type="button" value="Choose Image" id="choose-image"></label>
 <br>
-  <label> Deadline: <input type="date" [(ngModel)]="dateTime" id="choose-date" name="choose-date"></label>
-  <br><br>
-
-  <ng-container #customFields></ng-container>
-
-  <input type="button" value="Create Custom Field" (click)="openDialog()">
-  <br>
+  <label> Deadline: <input type="date" id="choose-date" name="choose-date"></label>
 
   <br>
   <label> Other Experience: <input type="text" [(ngModel)]="miscExperience" name="misc">
-  </label>
+  </label><br>
 
   <br><br>
   <button type="button">Next Page</button>
 
 
-  <br> <br> 
+  <br> <br> <br>
 
   <!-- delete later -->
 
   <p> [next page] </p>
 
   <h1>Create Research Listing</h1>
-  <ng-container #customFieldsPage2></ng-container>
+  <label> CUSTOM FIELD NAME: <input type="textbox" name="fieldName">
+  </label><br>
 
-  <input type="button" value="Add Custom Field" (click)="addCustomField('', '')">
-  <br>
 
 </form>
