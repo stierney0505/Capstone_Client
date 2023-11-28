@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConfirmEmailComponent } from './confirmemail/email.component';
 import { PostProjectComponent } from './post_creation/posts.component';
 import { CategoryComponent } from './post_creation/category-widget/category.component';
+import { CustomFieldDialogue } from './post_creation/custom-field-modal/modal.component';
+import { BrowserAnimationsModule, NoopAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { CategoryComponent } from './post_creation/category-widget/category.comp
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CustomFieldDialogue,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

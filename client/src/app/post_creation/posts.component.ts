@@ -2,16 +2,10 @@ import { Component, ComponentRef, ViewChild, ViewContainerRef, OnInit, AfterView
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-<<<<<<< Updated upstream
-import { FormsModule } from "@angular/forms";
 import { CategoryComponent } from './category-widget/category.component';
 import { FieldComponent } from './custom-field/field.component';
-=======
-import { CategoryComponent } from './category-widget/category/category.component';
-import { FieldComponent } from './custom-field/field/field.component';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { CustomFieldDialogue } from './custom-field-modal/modal.component';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-posts',

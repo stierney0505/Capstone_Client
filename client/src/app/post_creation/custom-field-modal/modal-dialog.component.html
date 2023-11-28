@@ -7,10 +7,11 @@
 <mat-form-field>
     <mat-label>Select me</mat-label>
     <mat-select [(value)]="data.type">
-        <mat-option value="option">Option</mat-option>
+        <mat-option value="option">Text Reply</mat-option>
+        <mat-option value="option">Checkbox</mat-option>
     </mat-select>
 </mat-form-field>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Cancel</button>
-    <button mat-button cdkFocusInitial [mat-dialog-close]="data.type">Create</button>
+    <button mat-button cdkFocusInitial [mat-dialog-close]="data">Create</button>
 </div>
