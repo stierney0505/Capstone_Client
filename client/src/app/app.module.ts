@@ -16,10 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ResearchProjectCardComponent } from './research-project-card/research-project-card.component';
 import { MatTableModule } from '@angular/material/table';
-import { PostProjectComponent } from './post_creation/posts.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CategoryComponent } from './post_creation/category-widget/category/category.component';
-import { FieldComponent } from './post_creation/custom-field/field/field.component';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
@@ -31,7 +28,6 @@ import { LoginComponent } from './login/login.component';
     HeaderBarComponent,
     FacultyDashboardComponent,
     ResearchProjectCardComponent,
-    PostProjectComponent,
     LoginComponent,
   ],
   imports: [

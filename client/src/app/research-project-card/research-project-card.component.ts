@@ -22,7 +22,7 @@ export class ResearchProjectCardComponent implements OnInit {
   }
 
   redirectToCreateProject() {
-    this.router.navigate(['/create-post']);
+    //this.router.navigate(['/create-post']);
   }
 
   fetchProjects(): void {
