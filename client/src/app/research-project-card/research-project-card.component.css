@@ -1,0 +1,24 @@
+.project-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-bottom: 20px;
+  }
+  
+  .faculty-project-selection-column {
+    margin-bottom: 20px;
+  }
+  
+  .project-selection-button {
+    margin-right: 10px;
+  }
+  

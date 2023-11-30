@@ -9,17 +9,20 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
+
   email: string = '';
   password: string = '';
+  name: string = '';
 
-  url: string = environment.apiUrl;
+  url: string = environment.registerApiUrl;
 
   constructor(private http: HttpClient, private router: Router) {}
 
   onSubmit() {
     const data = {
       email: this.email,
-      password: this.password
+      password: this.password,
+      name: this.name
     };
 
     /*
