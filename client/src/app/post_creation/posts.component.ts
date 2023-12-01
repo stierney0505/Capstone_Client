@@ -6,6 +6,7 @@ import { CategoryComponent } from './category-widget/category.component';
 import { FieldComponent } from './custom-field/field.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomFieldDialogue } from './custom-field-modal/modal.component';
+import { CustomRequirementCreator } from './dialog-custom-field/category.component';
 
 @Component({
   selector: 'app-posts',
@@ -20,7 +21,7 @@ export class PostProjectComponent implements AfterViewInit {
   major: string | null  = "";
   standing: string | null  = "";
   miscExperience: string | null  = "";
-  url: string = environment.apiUrl;
+  url: string = `${environment.ipUrl}/api/projects/createProject`;
   fileName: string = "";
   dateTime: Date = new Date();
 
@@ -32,6 +33,9 @@ export class PostProjectComponent implements AfterViewInit {
 
   @ViewChild('customFieldsPage2', {read: ViewContainerRef})
   customFields!: ViewContainerRef;
+
+  @ViewChild('customRequirements', {read: ViewContainerRef})
+  customRequirements!: ViewContainerRef;
 
   exampleData: Array<{name: string}> = [
     {
@@ -72,8 +76,9 @@ export class PostProjectComponent implements AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
+      if (result) {
+        this.createNewRequirement(result.fieldName, result.type == 'text')
+      }
     });
   }
 
@@ -97,9 +102,42 @@ export class PostProjectComponent implements AfterViewInit {
 
   categoryObjects: Array<ComponentRef<CategoryComponent>> = [];
   customFieldObjects: Array<ComponentRef<FieldComponent>> = [];
+  customRequirementObjects: Array<ComponentRef<CustomRequirementCreator>> = [];
 
   onSubmit() {
-    
+    const data = {
+      projectType: "Active",
+      professorEmail: "N/A",
+      projectDetails: {
+        project: {
+          projectName: this.title,
+          posted: Date.now(),
+          description: this.description,
+          questions: this.customFieldObjects.map(comp => {
+            return [
+              comp.instance.fieldName,
+              comp.instance.fieldInstructions
+            ]
+          }),
+          requirements: this.customRequirementObjects.map(inst => {
+            return {
+              requirementType: inst.instance.isText ? 1 : 2,
+              requirementValue: inst.instance.fieldName,
+              required: true // TODO
+            }
+          })
+        }
+      }
+    };
+
+    this.http.post(this.url, data)
+      .subscribe((response: any) => {
+        console.log('Project creation successful!', response);
+
+        this.router.navigate(['/home']);
+      }, (error: any) => {
+        console.error('Registration failed.', error);
+      });
   };
 
   addCustomField(name: string | null, instructions: string | null) {
@@ -111,6 +149,20 @@ export class PostProjectComponent implements AfterViewInit {
       let index = this.customFieldObjects.indexOf(category);
       if (index > -1) {
         this.customFieldObjects.splice(index, 1);
+        category.destroy();
+      }
+    })
+  }
+
+  createNewRequirement(name: string, isText: boolean) {
+    const category = this.customRequirements.createComponent(CustomRequirementCreator);
+    category.setInput('fieldName', name != null ? name : "");
+    category.setInput('isText', isText);
+    this.customRequirementObjects.push(category);
+    category.instance.deleted.subscribe(() => {
+      let index = this.customRequirementObjects.indexOf(category);
+      if (index > -1) {
+        this.customRequirementObjects.splice(index, 1);
         category.destroy();
       }
     })
