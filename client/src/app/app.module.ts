@@ -22,6 +22,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CategoryComponent } from './post_creation/category-widget/category/category.component';
 import { FieldComponent } from './post_creation/custom-field/field/field.component';
 import { LoginComponent } from './login/login.component';
+import { FacultyToolbarComponent } from './faculty-toolbar/faculty-toolbar.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,7 @@ import { LoginComponent } from './login/login.component';
     PostProjectComponent,
     FacultyPostCreationPageComponent,
     LoginComponent,
+    FacultyToolbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +52,9 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
     MatTableModule,
     ReactiveFormsModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

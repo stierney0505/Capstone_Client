@@ -1,46 +1,45 @@
-<app-header-bar></app-header-bar>
+<app-faculty-toolbar></app-faculty-toolbar>
 <div class="faculty-dashboard-page-container">
   <div class="faculty-dashboard-info">
-      <div class="faculty-active-projects">
-        <app-research-project-card></app-research-project-card>
-      </div>
-      <div class="faculty-project-applied-student-list">
-        <p>student that applied stuff</p>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <div class="faculty-active-projects">
+      <app-research-project-card></app-research-project-card>
+    </div>
+    <div class="faculty-project-applied-student-list">
+      <p>student that applied stuff</p>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-          <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-          </ng-container>
-        
-          <!-- Name Column -->
-          <ng-container matColumnDef="gpa">
-            <th mat-header-cell *matHeaderCellDef> GPA </th>
-            <td mat-cell *matCellDef="let element"> {{element.gpa}} </td>
-          </ng-container>
-        
-          <!-- Degree Column -->
-          <ng-container matColumnDef="degree">
-            <th mat-header-cell *matHeaderCellDef> Degree </th>
-            <td mat-cell *matCellDef="let element"> {{element.degree}} </td>
-          </ng-container>
-        
-          <!-- Email Column -->
-          <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef> Email </th>
-            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-          </ng-container>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
 
-          <!-- Experience Column -->
-          <ng-container matColumnDef="experience">
-            <th mat-header-cell *matHeaderCellDef> Experience </th>
-            <td mat-cell *matCellDef="let element"> {{element.experience}} </td>
-          </ng-container>
-        
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-      </div>
+        <!-- Name Column -->
+        <ng-container matColumnDef="gpa">
+          <th mat-header-cell *matHeaderCellDef> GPA </th>
+          <td mat-cell *matCellDef="let element"> {{element.gpa}} </td>
+        </ng-container>
+
+        <!-- Degree Column -->
+        <ng-container matColumnDef="degree">
+          <th mat-header-cell *matHeaderCellDef> Degree </th>
+          <td mat-cell *matCellDef="let element"> {{element.degree}} </td>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <!-- Experience Column -->
+        <ng-container matColumnDef="experience">
+          <th mat-header-cell *matHeaderCellDef> Experience </th>
+          <td mat-cell *matCellDef="let element"> {{element.experience}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
   </div>
 </div>
-
