@@ -63,4 +63,17 @@ export class FacultyProjectService {
 
     return this.http.put(`${this.apiUrl}/projects/archiveProject`, data, { headers });
   }
+
+  updateProject(projectID: string, projectType: string, updateData: any): Observable<any> {
+    const authToken = localStorage.getItem("jwt-auth-token");
+  
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${authToken}`,
+    });
+
+  
+    return this.http.put(`${this.apiUrl}/projects/updateProject`, updateData, { headers });
+  }
+  
 }

@@ -10,7 +10,9 @@ import { environment } from 'src/environments/environment';
 })
 export class ResearchProjectCardComponent implements OnInit {
   projects: any[] = [];
-  currentProjectType: string = 'active'; // Default to the list of active projects
+  currentProjectType: string = 'Active'; // Default to the list of active projects
+  selectedProject: any | null = null;
+  updatedProject: any = {};
 
   constructor(
     private facultyProjectService: FacultyProjectService,
@@ -39,19 +41,19 @@ export class ResearchProjectCardComponent implements OnInit {
   // Define a method to get the project data based on the project type
   getProjectsByType(type: string, data: any): any[] {
     switch (type) {
-      case 'active':
+      case 'Active':
         return data.success &&
           data.success.projects &&
           data.success.projects.activeProjects
           ? data.success.projects.activeProjects.projects
           : [];
-      case 'archived':
+      case 'Archived':
         return data.success &&
           data.success.projects &&
           data.success.projects.archivedProjects
           ? data.success.projects.archivedProjects.projects
           : [];
-      case 'draft':
+      case 'Draft':
         return data.success &&
           data.success.projects &&
           data.success.projects.draftProjects
@@ -68,11 +70,11 @@ export class ResearchProjectCardComponent implements OnInit {
   // Update the current project type when a button is clicked
   updateProjectType(type: string): void {
     this.currentProjectType = type;
-    if (type === 'active'){
+    if (type === 'Active'){
       this.showActiveProjectButtons = true;
       this.showDraftProjectButtons = false;
       this.showArchivedProjectButtons = false;
-    }else if (type === 'archived') {
+    }else if (type === 'Archived') {
       this.showArchivedProjectButtons = true;
       this.showActiveProjectButtons = false;
       this.showDraftProjectButtons = false;
@@ -113,5 +115,48 @@ export class ResearchProjectCardComponent implements OnInit {
       });
   }
 
+  //update stuff
+
+  buttonUpdateProject(projectID: string, projectType: string, project: any): void {
+    console.log(`Updating project with ID ${projectID}`);
+    const structuredUpdateData = {
+      projectID: projectID,
+      projectType: projectType,
+      projectDetails: {
+        project: {
+          projectName: project.projectName,
+          posted: project.posted,
+          description: project.description,
+          questions: project.questions,
+          requirements: project.requirements.map((requirement: any) => ({
+            requirementType: requirement.requirementType,
+            requirementValue: requirement.requirementValue,
+            required: requirement.required,
+          })),
+        },
+      },
+    };
+  
+    this.facultyProjectService.updateProject(projectID, projectType, structuredUpdateData)
+      .subscribe({
+        next: (response) => {
+          console.log('Update Response', response);
+        },
+        error: (error) => {
+          console.error('Error updating project', error);
+        },
+      });
+  }
+
+  openEditModal(project: any): void {
+    this.selectedProject = project;
+    this.updatedProject = { ...project };
+  }
+
+  submitUpdate(): void {
+    this.buttonUpdateProject(this.selectedProject._id, this.currentProjectType, this.updatedProject);
+    this.selectedProject = null;
+    this.updatedProject = {};
+  }
 
 }

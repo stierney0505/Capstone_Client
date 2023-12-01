@@ -1,3 +1,18 @@
+<!-- modal stuff -->
+<div *ngIf="selectedProject" class="edit-project-modal">
+  <h2>Edit Project</h2>
+  <form (ngSubmit)="submitUpdate()">
+    <label for="projectName">Project Name:</label>
+    <input type="text" id="projectName" name="projectName" [(ngModel)]="updatedProject.projectName" required>
+    <br>
+    <label for="description">Project Description:</label>
+    <input type="text" id="description" name="description" [(ngModel)]="updatedProject.description" required>
+
+    <button type="submit">Update Project</button>
+  </form>
+</div>
+
+<!-- other stuff -->
 <div class="faculty-project-selection-column">
   <button mat-raised-button class="project-selection-button" (click)="updateProjectType('active')">Active Projects</button>
   <button mat-raised-button class="project-selection-button" (click)="updateProjectType('archived')">Archived Projects</button>
@@ -15,13 +30,13 @@
     <p>Requirements: {{ project.requirements | json }}</p>
     <p>{{project._id}}</p>
     <div class="buttons-for-posts">
-      <button mat-raised-button color="primary" *ngIf="showActiveProjectButtons">Update</button>
+      <button mat-raised-button color="primary" *ngIf="showActiveProjectButtons" (click)="openEditModal(project)">Update</button>
       <button mat-raised-button color="accent" *ngIf="showActiveProjectButtons" (click)="buttonArchiveProject(project._id)">Archive</button>
       <button mat-raised-button color="warn" *ngIf="showActiveProjectButtons" (click)="buttonDeleteProject(project._id,'Active')">Delete</button>
 
       <button mat-raised-button color="warn" *ngIf="showArchivedProjectButtons" (click)="buttonDeleteProject(project._id,'Archived')">Delete</button>
 
-      <button mat-raised-button color="primary" *ngIf="showDraftProjectButtons">Update</button>
+      <button mat-raised-button color="primary" *ngIf="showDraftProjectButtons" (click)="openEditModal(project)">Update</button>
       <button mat-raised-button color="accent" *ngIf="showDraftProjectButtons">Publish</button>
       <button mat-raised-button color="warn" *ngIf="showDraftProjectButtons" (click)="buttonDeleteProject(project._id,'Draft')">Delete</button>
     </div>
