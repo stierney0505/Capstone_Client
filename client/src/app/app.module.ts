@@ -18,6 +18,7 @@ import { ResearchProjectCardComponent } from './research-project-card/research-p
 import { MatTableModule } from '@angular/material/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { AppliedStudentTableComponent } from './applied-student-table/applied-student-table.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LoginComponent } from './login/login.component';
     FacultyDashboardComponent,
     ResearchProjectCardComponent,
     LoginComponent,
+    AppliedStudentTableComponent,
   ],
   imports: [
     BrowserModule,
