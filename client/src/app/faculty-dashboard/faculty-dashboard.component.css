@@ -18,7 +18,7 @@
   height: 100%;
 }
 
-.faculty-dashboard-info {
+/* .faculty-dashboard-info {
     border: 1px solid #000;
 }
 
@@ -28,14 +28,14 @@
 
 .faculty-project-applied-student-list {
     border: 1px solid #000;
-}
+} */
 
 .project-selection-button {
-    width: 150px;
+  width: 150px;
 }
 
 .project-creation-button {
-    width: 150px;
-    border-radius: 25px;
-    margin-top: 50px;
+  width: 150px;
+  border-radius: 25px;
+  margin-top: 50px;
 }

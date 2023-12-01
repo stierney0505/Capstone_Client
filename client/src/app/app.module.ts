@@ -18,9 +18,12 @@ import { ResearchProjectCardComponent } from './research-project-card/research-p
 import { MatTableModule } from '@angular/material/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { FacultyToolbarComponent } from './faculty-toolbar/faculty-toolbar.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 import { AppliedStudentTableComponent } from './applied-student-table/applied-student-table.component';
 import { MatSortModule } from '@angular/material/sort';
-
 
 @NgModule({
   declarations: [
@@ -32,6 +35,7 @@ import { MatSortModule } from '@angular/material/sort';
     FacultyDashboardComponent,
     ResearchProjectCardComponent,
     LoginComponent,
+    FacultyToolbarComponent,
     AppliedStudentTableComponent,
   ],
   imports: [
@@ -45,6 +49,9 @@ import { MatSortModule } from '@angular/material/sort';
     MatButtonModule,
     MatTableModule,
     ReactiveFormsModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatCardModule,
     MatSortModule,
   ],
   providers: [],
