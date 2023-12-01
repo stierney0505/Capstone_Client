@@ -16,16 +16,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { ResearchProjectCardComponent } from './research-project-card/research-project-card.component';
 import { MatTableModule } from '@angular/material/table';
-import { PostProjectComponent } from './post_creation/posts.component';
-import { FacultyPostCreationPageComponent } from './faculty-post-creation-page/faculty-post-creation-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CategoryComponent } from './post_creation/category-widget/category/category.component';
-import { FieldComponent } from './post_creation/custom-field/field/field.component';
 import { LoginComponent } from './login/login.component';
 import { FacultyToolbarComponent } from './faculty-toolbar/faculty-toolbar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { AppliedStudentTableComponent } from './applied-student-table/applied-student-table.component';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -36,10 +34,9 @@ import { MatCardModule } from '@angular/material/card';
     HeaderBarComponent,
     FacultyDashboardComponent,
     ResearchProjectCardComponent,
-    PostProjectComponent,
-    FacultyPostCreationPageComponent,
     LoginComponent,
     FacultyToolbarComponent,
+    AppliedStudentTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +52,7 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatToolbarModule,
     MatCardModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

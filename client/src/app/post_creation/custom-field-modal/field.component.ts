@@ -11,31 +11,41 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'category-field',
+  selector: 'add-category-field',
   standalone: true,
   imports: [CommonModule],
   template: `
-    <input type="checkbox" id="categoryInput" name={{name}} value="cs">
-    <input type="text" value="{{ name }}" name="cs"><input type="button" (click)="onClick()" value="Delete"><br>
+    <label>{{ fieldName }}</label><br>
+    <div *ngIf="isText">
+      <textarea id="disabledInputField" name="inputPlaceholder" disabled rows="4" cols="50">
+        Students will type their responses in here.
+      </textarea>
+    </div>
+    <div *ngIf="!isText">
+      
+    </div>
+    <br>
+    <input type="button" (click)="onClick()" value="Delete"><br>
   `,
-  styleUrls: ['./category.component.css'],
+  styleUrls: ['./field.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
-export class CategoryComponent implements OnChanges {
+export class FieldComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log('changes are happen');
   }
+
 
   @Output() deleted = new EventEmitter<any>();
 
   constructor(private host: ElementRef<HTMLElement>) {}
 
   onClick() {
-    // Deletes local element then fires the Observable to tell the parent "hey I killed myself!"
     this.host.nativeElement.remove();
     this.deleted.emit(null);
   }
 
-  @Input() name: string = "This is a test";
+  @Input() isText: boolean = true;
+  @Input() fieldName: string = "Placeholder String";
+
 }

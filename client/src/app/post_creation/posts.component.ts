@@ -1,9 +1,11 @@
 import { Component, ComponentRef, ViewChild, ViewContainerRef, OnInit, AfterViewInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { CategoryComponent } from './category-widget/category/category.component';
-import { FieldComponent } from './custom-field/field/field.component';
+import { CategoryComponent } from './category-widget/category.component';
+import { FieldComponent } from './custom-field/field.component';
+import { MatDialog } from '@angular/material/dialog';
+import { CustomFieldDialogue } from './custom-field-modal/modal.component';
 
 @Component({
   selector: 'app-posts',
@@ -43,7 +45,7 @@ export class PostProjectComponent implements AfterViewInit {
   exampleData2: Array<{name: string, instructions: string}> = [
     {
       name: 'Question 1',
-      instructions: "instruction here"
+      instructions: "Please beg on your knees why you want this"
     },
     {
       name: "Question 2",
@@ -51,7 +53,7 @@ export class PostProjectComponent implements AfterViewInit {
     }
   ]
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, public dialog: MatDialog) {
     
   }
 
@@ -64,8 +66,19 @@ export class PostProjectComponent implements AfterViewInit {
     })
   }
 
-  createCustomField() {
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CustomFieldDialogue, {
+      data: {type: 'option', fieldName: 'name'},
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.type == "text") {
+        // add a text field
+        
+      } else {
+        // add a checkbox field
+      }
+    });
   }
 
   onFileSelected(event: any) {
@@ -90,40 +103,8 @@ export class PostProjectComponent implements AfterViewInit {
   customFieldObjects: Array<ComponentRef<FieldComponent>> = [];
 
   onSubmit() {
-    const authToken = localStorage.getItem("jwt-auth-token");
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${authToken}`,
-    });
-    const formData = {
-      projectType: 'Active',
-      professor: 'Adam',
-      projectDetails: {
-        project: {
-          projectName: this.title,
-          posted: new Date(),
-          description: this.description,
-          questions: [
-            'this'
-          ],
-          requirements: [
-            {
-              requirementType: 1,
-              requirementValue: 'yo',
-              required: true
-            }
-          ]
-        }
-      }
-    };
-    console.log('FormData:', formData);
-    // Make an HTTP request to your server
-    this.http.post(`${this.url}/projects/createProject`, formData, { headers })
-      .subscribe(response => {
-        console.log('Project creation response:', response);
-        this.router.navigate(['/faculty-dashboard']);
-      });
-  }
+    
+  };
 
   addCustomField(name: string | null, instructions: string | null) {
     const category = this.customFields.createComponent(FieldComponent);
