@@ -130,6 +130,15 @@ export class PostProjectComponent implements AfterViewInit {
       }
     };
 
+    // TODO
+    // Handle Paid/Unpaid
+    // Handle experience required
+    // Handle optional categories
+    // Handle Image
+    // Handle Other Experience
+    // Handle Deadline
+    // Handle Responsibilities
+
     this.http.post(this.url, data)
       .subscribe((response: any) => {
         console.log('Project creation successful!', response);
