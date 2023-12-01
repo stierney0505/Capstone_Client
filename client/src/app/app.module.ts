@@ -20,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AppliedStudentTableComponent } from './applied-student-table/applied-student-table.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
