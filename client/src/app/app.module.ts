@@ -19,6 +19,7 @@ import { MatTableModule } from '@angular/material/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { AppliedStudentTableComponent } from './applied-student-table/applied-student-table.component';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { AppliedStudentTableComponent } from './applied-student-table/applied-st
     MatButtonModule,
     MatTableModule,
     ReactiveFormsModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
