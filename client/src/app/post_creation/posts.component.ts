@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { CategoryComponent } from './category-widget/category.component';
-import { FieldComponent } from './custom-field/field.component';
+import { FieldComponent } from './custom-field-modal/field.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomFieldDialogue } from './custom-field-modal/modal.component';
 import { CustomRequirementCreator } from './dialog-custom-field/category.component';
@@ -116,7 +116,7 @@ export class PostProjectComponent implements AfterViewInit {
           questions: this.customFieldObjects.map(comp => {
             return [
               comp.instance.fieldName,
-              comp.instance.fieldInstructions
+              // comp.instance.fieldInstructions
             ]
           }),
           requirements: this.customRequirementObjects.map(inst => {
