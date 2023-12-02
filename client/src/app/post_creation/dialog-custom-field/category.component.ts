@@ -35,10 +35,7 @@ import {
   styleUrls: ['./category.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CustomRequirementCreator implements OnChanges {
-  ngOnChanges(changes: SimpleChanges): void {
-    
-  }
+export class CustomRequirementCreator {
 
   @Output() deleted = new EventEmitter<any>();
 
@@ -49,8 +46,8 @@ export class CustomRequirementCreator implements OnChanges {
     this.deleted.emit(null);
   }
 
-  @Input() isText: boolean = true;
-  @Input() fieldName: string = "Placeholder String";
+  isText: boolean = true;
+  fieldName: string = "Placeholder String";
   
 
 }

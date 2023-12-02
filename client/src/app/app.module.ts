@@ -18,6 +18,8 @@ import { ResearchProjectCardComponent } from './research-project-card/research-p
 import { MatTableModule } from '@angular/material/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { PostProjectComponent } from './post_creation/posts.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { LoginComponent } from './login/login.component';
     FacultyDashboardComponent,
     ResearchProjectCardComponent,
     LoginComponent,
+    PostProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
     MatTableModule,
     ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

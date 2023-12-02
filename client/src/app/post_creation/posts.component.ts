@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { CategoryComponent } from './category-widget/category.component';
-import { FieldComponent } from './custom-field/field.component';
+import { FieldComponent } from './custom-field-modal/field.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomFieldDialogue } from './custom-field-modal/modal.component';
 import { CustomRequirementCreator } from './dialog-custom-field/category.component';
@@ -11,7 +11,6 @@ import { CustomRequirementCreator } from './dialog-custom-field/category.compone
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.css']
 })
 export class PostProjectComponent implements AfterViewInit {
   title: string | null = "";
@@ -62,12 +61,12 @@ export class PostProjectComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() : void {
-    this.exampleData.forEach(val => {
-      this.createNewCategory(val.name);
-    });
-    this.exampleData2.forEach(val => {
-      this.addCustomField(val.name, val.instructions)
-    })
+    // this.exampleData.forEach(val => {
+    //   this.createNewCategory(val.name);
+    // });
+    // this.exampleData2.forEach(val => {
+    //   this.addCustomField(val.name, val.instructions)
+    // })
   }
 
   openDialog(): void {
@@ -149,16 +148,25 @@ export class PostProjectComponent implements AfterViewInit {
       });
   };
 
+  updateFieldNames() : void {
+    let index: number = 1;
+    this.customFieldObjects.forEach(comp => {
+      comp.setInput("fieldName", `Question ${index++}`);
+    })
+  }
+
   addCustomField(name: string | null, instructions: string | null) {
     const category = this.customFields.createComponent(FieldComponent);
-    category.setInput('fieldName', name != null ? name : "");
-    category.setInput('fieldInstructions', instructions != null ? instructions : "");
+    category.instance.fieldName = name != null ? name : "";
+    category.instance.fieldInstructions = instructions != null ? instructions : "";
     this.customFieldObjects.push(category);
+    this.updateFieldNames();
     category.instance.deleted.subscribe(() => {
       let index = this.customFieldObjects.indexOf(category);
       if (index > -1) {
         this.customFieldObjects.splice(index, 1);
         category.destroy();
+        this.updateFieldNames();
       }
     })
   }

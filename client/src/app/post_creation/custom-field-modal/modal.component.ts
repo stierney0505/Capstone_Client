@@ -5,8 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
-import { NoopAnimationPlayer } from '@angular/animations';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 
 export interface CustomFieldDialogData {
   type: string;
@@ -18,7 +17,7 @@ export interface CustomFieldDialogData {
   templateUrl: 'modal-dialog.component.html',
   standalone: true,
   imports: [MatDialogModule, MatFormFieldModule, MatInputModule, FormsModule, MatButtonModule, MatSelectModule],
-  providers: [provideAnimations()]
+  providers: [BrowserAnimationsModule]
 })
 export class CustomFieldDialogue {
   constructor(
