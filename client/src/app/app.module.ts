@@ -20,6 +20,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { PostProjectComponent } from './post_creation/posts.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { FacultyToolbarComponent } from './faculty-toolbar/faculty-toolbar.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { AppliedStudentTableComponent } from './applied-student-table/applied-student-table.component';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     FacultyDashboardComponent,
     ResearchProjectCardComponent,
     LoginComponent,
-    PostProjectComponent
+    PostProjectComponent,
+    FacultyToolbarComponent,
+    AppliedStudentTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +52,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatTableModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

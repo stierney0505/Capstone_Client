@@ -25,7 +25,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/custom-theme.scss",
+              "src/scss/rwp-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -94,6 +94,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/scss/rwp-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
