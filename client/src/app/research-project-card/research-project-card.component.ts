@@ -15,7 +15,7 @@ export class ResearchProjectCardComponent implements OnInit {
   constructor(
     private facultyProjectService: FacultyProjectService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.fetchProjects();
@@ -68,15 +68,15 @@ export class ResearchProjectCardComponent implements OnInit {
   // Update the current project type when a button is clicked
   updateProjectType(type: string): void {
     this.currentProjectType = type;
-    if (type === 'active'){
+    if (type === 'active') {
       this.showActiveProjectButtons = true;
       this.showDraftProjectButtons = false;
       this.showArchivedProjectButtons = false;
-    }else if (type === 'archived') {
+    } else if (type === 'archived') {
       this.showArchivedProjectButtons = true;
       this.showActiveProjectButtons = false;
       this.showDraftProjectButtons = false;
-    }else{
+    } else {
       this.showActiveProjectButtons = false;
       this.showArchivedProjectButtons = false;
       this.showDraftProjectButtons = true;
@@ -112,6 +112,4 @@ export class ResearchProjectCardComponent implements OnInit {
         }
       });
   }
-
-
 }

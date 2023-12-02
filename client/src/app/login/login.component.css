@@ -13,9 +13,3 @@
     transform: translate(-50%, -50%);
     text-align: center;
 }
-
-.submitButton {
-    margin-top: 5px;
-    background-color: #CFB991;
-    border-radius: 5px;
-}
