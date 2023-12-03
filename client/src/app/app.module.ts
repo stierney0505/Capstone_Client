@@ -18,6 +18,8 @@ import { ResearchProjectCardComponent } from './research-project-card/research-p
 import { MatTableModule } from '@angular/material/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { PostProjectComponent } from './post_creation/posts.component';
+import { MatDialogModule } from '@angular/material/dialog';
 import { FacultyToolbarComponent } from './faculty-toolbar/faculty-toolbar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -35,6 +37,7 @@ import { MatSortModule } from '@angular/material/sort';
     FacultyDashboardComponent,
     ResearchProjectCardComponent,
     LoginComponent,
+    PostProjectComponent,
     FacultyToolbarComponent,
     AppliedStudentTableComponent,
   ],
@@ -49,6 +52,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatButtonModule,
     MatTableModule,
     ReactiveFormsModule,
+    MatDialogModule,
     MatIconModule,
     MatToolbarModule,
     MatCardModule,
